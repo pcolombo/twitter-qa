@@ -6,51 +6,71 @@
 <script src="//cdn.livefyre.com/Livefyre.js"></script>
  
 <style>
-.section {
-    width: 40%;
-    border: 1px solid #333;
-    float:left;
+
+#feed-wrapper {
+  width: 80%;
+  margin: auto;
+  margin-bottom: 25px;
+  border-bottom: 2px #000 solid;
+}
+
+.feed-box {
+    text-align: center;
+    display: inline-block;
+}
+
+#comments-wrapper {
+  width: 70%;
+  margin: auto;
 }
 </style>
 </head>
 <body>
- 
-<div id="left" class="section"></div>
-<div id="right" class="section"></div>
+
+<div id="feed-wrapper">
+  <div id="left" class="feed-box"></div>
+  <div id="right" class="feed-box"></div>
+</div>
  
 <script>
 Livefyre.require(['streamhub-feed#2', 'streamhub-sdk#2'],
 function (Feed, SDK) {
-    var feed = new Feed({
-        el: document.getElementById('left'),
-        hideReplies: true
- 
-    });
-    var collection = new SDK.Collection({
+
+    var leftCollection = new SDK.Collection({
         network: "client-solutions.fyre.co",
         siteId: "351624",
         articleId: 'sn-1408227399239'
     });
-    collection.pipe(feed);
+
+    var rightCollection = new SDK.Collection({
+        network: "client-solutions.fyre.co",
+        siteId: "351624",
+        articleId: 'sn-1408227399239'
+    }); 
     
     
-    var feed2 = new Feed({
+    var rightFeed = new Feed({
         el: document.getElementById('right'),
         hideReplies: false
- 
     });
-    var collection2 = new SDK.Collection({
-        network: "client-solutions.fyre.co",
-        siteId: "351624",
-        articleId: 'sn-1408227399239'
+
+    
+    var leftFeed = new Feed({
+        el: document.getElementById('left'),
+        hideReplies: true
     });
-    collection2.pipe(feed2);
+
+    leftCollection.pipe(leftFeed);
+    rightCollection.pipe(rightFeed);
+
 });
  
 </script>
  
   <script src="http://zor.fyre.co/wjs/v3.0/javascripts/livefyre.js"></script>
-  <div id="livefyre-app-sn-1408227399239"></div>
+  <div id="comments-wrapper">
+    <div id="livefyre-app-sn-1408227399239"></div>
+  </div>
   <!-- Scripts -->
   <script>
   (function() {
