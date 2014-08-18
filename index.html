@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="//cdn.livefyre.com/Livefyre.js"></script>
+ 
+<style>
+.section {
+    width: 40%;
+    border: 1px solid #333;
+    float:left;
+}
+</style>
+</head>
+<body>
+ 
+<div id="left" class="section"></div>
+<div id="right" class="section"></div>
+ 
+<script>
+Livefyre.require(['streamhub-feed#2', 'streamhub-sdk#2'],
+function (Feed, SDK) {
+    var feed = new Feed({
+        el: document.getElementById('left'),
+        hideReplies: true
+ 
+    });
+    var collection = new SDK.Collection({
+        network: "client-solutions.fyre.co",
+        siteId: "351624",
+        articleId: 'sn-1408227399239'
+    });
+    collection.pipe(feed);
+    
+    
+    var feed2 = new Feed({
+        el: document.getElementById('right'),
+        hideReplies: false
+ 
+    });
+    var collection2 = new SDK.Collection({
+        network: "client-solutions.fyre.co",
+        siteId: "351624",
+        articleId: 'sn-1408227399239'
+    });
+    collection2.pipe(feed2);
+});
+ 
+</script>
+ 
+  <script src="http://zor.fyre.co/wjs/v3.0/javascripts/livefyre.js"></script>
+  <div id="livefyre-app-sn-1408227399239"></div>
+  <!-- Scripts -->
+  <script>
+  (function() {
+    fyre.conv.load({
+      network: 'client-solutions.fyre.co'
+      }, [{
+        app: 'main',
+        siteId: '351624',
+        articleId: 'sn-1408227399239',
+        el: 'livefyre-app-sn-1408227399239',
+        checksum: '704f0169f53f25ec1778956fcd0b144b',
+        collectionMeta: 'eyJhbGciOiAiSFMyNTYiLCAidHlwIjogIkpXVCJ9.eyJ1cmwiOiAiaHR0cDovL2NsaWVudC1zb2x1dGlvbnMubGl2ZWZ5cmUuY29tL3NuIiwgInRhZ3MiOiBbXSwgImFydGljbGVJZCI6ICJzbi0xNDA4MjI3Mzk5MjM5IiwgInRpdGxlIjogIlNvbnlsIFEmQSBUZXN0In0.jq71o-Q9bmHdvbJ10XtawDtjeST6zDBW1jfeS_41oiE'
+      }], function (widget) {
+        // Initialize or Auth
+      });
+  }());
+  </script>
+</body>
+</html>
