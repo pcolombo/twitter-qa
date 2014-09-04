@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<!--[if IE 7]>
+<html class="ie ie7" lang="en-US" prefix="og: http://ogp.me/ns#">
+<![endif]-->
+<!--[if IE 8]>
+<html class="ie ie8" lang="en-US" prefix="og: http://ogp.me/ns#">
+<![endif]-->
+<!--[if !(IE 7) | !(IE 8)  ]><!-->
+<html>
+<!--<![endif]-->
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<title>JEEZY – SEEN IT ALL – SEPTEMBER 2ND</title>
+	<style type="text/css">
+		#wrapper {
+			width: 800px;
+			margin: auto;
+		}
+
+		#feed-q {
+			width: 300px;
+			float: left;
+		}
+
+		#feed-a {
+			width: 300px;
+			float: right;
+		}
+	</style>
+</head>
+
+<body>
+<div id="wrapper">
+	<div id="feed-q"></div>
+	<div id="feed-a"></div>
+</div>
+
+<script src="http://cdn.livefyre.com/Livefyre.js"></script>
+	<script>
+	Livefyre.require(['streamhub-feed#3', 'streamhub-sdk#2'],
+	
+	function (Feed, SDK) {
+	    var feed = new Feed({ el: document.getElementById('feed-q') }),
+	    	feed2 = new Feed({ el: document.getElementById('feed-a'), hideReplies: false });
+
+	    var collection = new SDK.Collection({
+	        network: "umg.fyre.co",
+	        siteId: "363182",
+	        articleId: 'askjeezytest'
+	    });
+		var collection2 = new SDK.Collection({
+			network: "umg.fyre.co",
+			siteId: "363182",
+			articleId: 'custom-1409689909679'
+		});
+	    collection.pipe(feed);
+	    collection2.pipe(feed2);
+	});
+
+	$(document).ready(function() {
+		var TWEET_URL = "https://twitter.com/intent/tweet";
+			
+		$(".tweet").each(function() {
+			var elem = $(this),
+			// Use current page URL as default link
+			url = encodeURIComponent(elem.attr("data-url") || document.location.href),
+			// Use page title as default tweet message
+			text = elem.attr("data-text") || document.title,
+			via = elem.attr("data-via") || "",
+			related = encodeURIComponent(elem.attr("data-related")) || "",
+			hashtags = encodeURIComponent(elem.attr("data-hashtags")) || "";
+			 
+			// Set href to tweet page
+			elem.attr({
+				href: TWEET_URL + "?original_referer=" +
+						encodeURIComponent(document.location.href) + "&related=" + related +
+						"&source=tweetbutton&text=" + text + "&url=" + url+ "&hashtags=" + hashtags,
+				target: "_blank"
+			});
+		});
+	});
+
+	</script>
+
+
+
+</body>
+
+</html>
