@@ -19,22 +19,28 @@
 			margin: auto;
 		}
 
-		#feed-q {
-			width: 300px;
+		#questions {			
 			float: left;
 		}
 
-		#feed-a {
-			width: 300px;
+		#answers {			
 			float: right;
 		}
+
 	</style>
 </head>
 
 <body>
 <div id="wrapper">
-	<div id="feed-q"></div>
-	<div id="feed-a"></div>
+	<div id="questions">
+		<p>Questions</p>
+		<div id="feed-q"></div>
+	</div>
+	
+	<div id="answers">
+		<p>Answers</p>
+		<div id="feed-a"></div>
+	</div>
 </div>
 
 <script src="http://cdn.livefyre.com/Livefyre.js"></script>
@@ -42,7 +48,7 @@
 	Livefyre.require(['streamhub-feed#3', 'streamhub-sdk#2'],
 	
 	function (Feed, SDK) {
-	    var feed = new Feed({ el: document.getElementById('feed-q') }),
+	    var feed = new Feed({ el: document.getElementById('feed-q'), hideReplies: true }),
 	    	feed2 = new Feed({ el: document.getElementById('feed-a'), hideReplies: false });
 
 	    var collection = new SDK.Collection({
@@ -59,28 +65,7 @@
 	    collection2.pipe(feed2);
 	});
 
-	$(document).ready(function() {
-		var TWEET_URL = "https://twitter.com/intent/tweet";
-			
-		$(".tweet").each(function() {
-			var elem = $(this),
-			// Use current page URL as default link
-			url = encodeURIComponent(elem.attr("data-url") || document.location.href),
-			// Use page title as default tweet message
-			text = elem.attr("data-text") || document.title,
-			via = elem.attr("data-via") || "",
-			related = encodeURIComponent(elem.attr("data-related")) || "",
-			hashtags = encodeURIComponent(elem.attr("data-hashtags")) || "";
-			 
-			// Set href to tweet page
-			elem.attr({
-				href: TWEET_URL + "?original_referer=" +
-						encodeURIComponent(document.location.href) + "&related=" + related +
-						"&source=tweetbutton&text=" + text + "&url=" + url+ "&hashtags=" + hashtags,
-				target: "_blank"
-			});
-		});
-	});
+	
 
 	</script>
 
