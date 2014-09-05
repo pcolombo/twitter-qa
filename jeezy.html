@@ -45,11 +45,11 @@
 
 <script src="http://cdn.livefyre.com/Livefyre.js"></script>
 	<script>
-	Livefyre.require(['streamhub-feed#3', 'streamhub-sdk#2'],
+	Livefyre.require(['streamhub-feed#3', 'streamhub-sdk#3'],
 	
 	function (Feed, SDK) {
-	    var qFeed = new Feed({ el: document.getElementById('feed-q'), hideReplies: true });
-	    var aFeed = new Feed({ el: document.getElementById('feed-a'), hideReplies: false });
+	    var qFeed = new Feed({ el: document.getElementById('feed-q'), hideReplies: true, queueInitial: Infinity });
+	    var aFeed = new Feed({ el: document.getElementById('feed-a'), hideReplies: false, queueInitial: Infinity });
 
 	    var aCollection = new SDK.Collection({
 	        network: "umg.fyre.co",
