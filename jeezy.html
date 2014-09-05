@@ -48,21 +48,21 @@
 	Livefyre.require(['streamhub-feed#3', 'streamhub-sdk#2'],
 	
 	function (Feed, SDK) {
-	    var feed = new Feed({ el: document.getElementById('feed-q'), hideReplies: true }),
-	    	feed2 = new Feed({ el: document.getElementById('feed-a'), hideReplies: false });
+	    var qFeed = new Feed({ el: document.getElementById('feed-q'), hideReplies: true });
+	    var aFeed = new Feed({ el: document.getElementById('feed-a'), hideReplies: false });
 
-	    var collection = new SDK.Collection({
+	    var aCollection = new SDK.Collection({
 	        network: "umg.fyre.co",
 	        siteId: "363182",
 	        articleId: 'askjeezytest'
 	    });
-		var collection2 = new SDK.Collection({
+		var qCollection = new SDK.Collection({
 			network: "umg.fyre.co",
 			siteId: "363182",
 			articleId: 'custom-1409689909679'
 		});
-	    collection.pipe(feed);
-	    collection2.pipe(feed2);
+	   	aCollection.pipe(aFeed);
+	    qCollection.pipe(qFeed);
 	});
 
 	

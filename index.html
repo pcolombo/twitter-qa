@@ -6,83 +6,24 @@
 <script src="//cdn.livefyre.com/Livefyre.js"></script>
  
 <style>
-
-#feed-wrapper {
-  width: 80%;
-  margin: auto;
-  margin-bottom: 25px;
-  border-bottom: 2px #000 solid;
-}
-
-.feed-box {
-    text-align: center;
-    display: inline-block;
-}
-
-#comments-wrapper {
-  width: 70%;
-  margin: auto;
-}
 </style>
 </head>
 <body>
-
-<div id="feed-wrapper">
-  <div id="left" class="feed-box"></div>
-  <div id="right" class="feed-box"></div>
-</div>
- 
-<script>
-Livefyre.require(['streamhub-feed#2', 'streamhub-sdk#2'],
-function (Feed, SDK) {
-
-    var leftCollection = new SDK.Collection({
-        network: "client-solutions.fyre.co",
-        siteId: "351624",
-        articleId: 'sn-1408227399239'
-    });
-
-    var rightCollection = new SDK.Collection({
-        network: "client-solutions.fyre.co",
-        siteId: "351624",
-        articleId: 'sn-1408227399239'
-    }); 
-    
-    
-    var rightFeed = new Feed({
-        el: document.getElementById('right'),
-        hideReplies: false
-    });
-
-    
-    var leftFeed = new Feed({
-        el: document.getElementById('left'),
-        hideReplies: true
-    });
-
-    leftCollection.pipe(leftFeed);
-    rightCollection.pipe(rightFeed);
-
-});
- 
-</script>
- 
   <script src="http://zor.fyre.co/wjs/v3.0/javascripts/livefyre.js"></script>
-  <div id="comments-wrapper">
-    <div id="livefyre-app-sn-1408227399239"></div>
+  <div style="width: 700px; margin:auto;">
+    <div id="livefyre-app-askjeezytest"></div>
   </div>
   <!-- Scripts -->
   <script>
   (function() {
     fyre.conv.load({
-      network: 'client-solutions.fyre.co'
+      network: 'umg.fyre.co'
       }, [{
-        app: 'main',
-        siteId: '351624',
-        articleId: 'sn-1408227399239',
-        el: 'livefyre-app-sn-1408227399239',
-        checksum: '704f0169f53f25ec1778956fcd0b144b',
-        collectionMeta: 'eyJhbGciOiAiSFMyNTYiLCAidHlwIjogIkpXVCJ9.eyJ1cmwiOiAiaHR0cDovL2NsaWVudC1zb2x1dGlvbnMubGl2ZWZ5cmUuY29tL3NuIiwgInRhZ3MiOiBbXSwgImFydGljbGVJZCI6ICJzbi0xNDA4MjI3Mzk5MjM5IiwgInRpdGxlIjogIlNvbnlsIFEmQSBUZXN0In0.jq71o-Q9bmHdvbJ10XtawDtjeST6zDBW1jfeS_41oiE'
+        siteId: '363182',
+        articleId: 'askjeezytest',
+        el: 'livefyre-app-askjeezytest',
+        checksum: '781d2c05285729ecf4b28aab46cc66cf',
+        collectionMeta: 'eyJhbGciOiAiSFMyNTYiLCAidHlwIjogIkpXVCJ9.eyJ1cmwiOiAiaHR0cDovL2plZXp5c2Vlbml0YWxsLmNvbS8iLCAidGFncyI6IFsidHdpdHRlciIsICJqZWV6eXNlZW5pdGFsbCIsICJqZWV6eSJdLCAiYXJ0aWNsZUlkIjogImFza2plZXp5dGVzdCIsICJ0aXRsZSI6ICIjQXNrSmVlenlUZXN0In0.Arasrd9ZxicjZuPdq_m6idMM5boddj6dyIXJy_vAsl0'
       }], function (widget) {
         // Initialize or Auth
       });
