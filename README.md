@@ -27,6 +27,9 @@ Moderating Content:
 * Trash junk content to keep the queue clear
 * Filter on Pending content state to find content to work on quicker
 
+**If you would like questions to NOT appear in the answers feed until there is a reply**, you should use 2 separate collections instead of 2 rules. The "Answers" collection should be set to pre-moderate on all rules, and you'll need to approve the question tweet before you post the reply.
+
+
 ## Implementation
 
 ### Feed App
